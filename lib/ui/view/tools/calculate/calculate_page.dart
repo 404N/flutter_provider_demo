@@ -100,7 +100,7 @@ class _CalculatePageState extends State<CalculatePage> {
             ),
             labelStyle: TextStyle(fontSize: 20),
             hintStyle: TextStyle(fontSize: 20),
-            hintText: 'Amount to exchange',
+            hintText: '兑换金额',
             border: InputBorder.none,
             contentPadding: EdgeInsets.all(20),
           ),

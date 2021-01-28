@@ -21,8 +21,8 @@ class ToolWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 100,
+      height: 120,
+      width: 120,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.all(
@@ -34,7 +34,7 @@ class ToolWidget extends StatelessWidget {
           Spacer(),
           Icon(
             iconData,
-            size: 40,
+            size: 60,
             color: Colors.amber,
           ),
           Spacer(),
@@ -43,7 +43,7 @@ class ToolWidget extends StatelessWidget {
               title,
               style: TextStyle(
                 color: textColor,
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),

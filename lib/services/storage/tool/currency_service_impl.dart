@@ -1,4 +1,3 @@
-
 import 'package:flutter_provider_demo/business_logic/models/tool/currency.dart';
 import 'package:flutter_provider_demo/business_logic/models/tool/rate.dart';
 import 'package:flutter_provider_demo/services/apis/tools/calculateApis.dart';
@@ -12,7 +11,7 @@ import 'currency_service.dart';
 // don't actually have to know anything about the web or storage details.
 class CurrencyServiceImpl implements CurrencyService {
   StorageService _storageService = serviceLocator<StorageService>();
-  CalculateApis _calculateApis=CalculateApis();
+  CalculateApis _calculateApis = CalculateApis();
   static final defaultFavorites = [Currency('CNY'), Currency('USD')];
 
   @override
@@ -37,19 +36,21 @@ class CurrencyServiceImpl implements CurrencyService {
     if (remoteData[0].baseCurrency == base) {
       return remoteData;
     }
-    double divisor =
-        remoteData.firstWhere((rate) => rate.quoteCurrency == base).exchangeRate;
-    return remoteData.map((rate) => Rate(
-      baseCurrency: base,
-      quoteCurrency: rate.quoteCurrency,
-      exchangeRate: rate.exchangeRate / divisor,
-    )).toList();
+    double divisor = remoteData
+        .firstWhere((rate) => rate.quoteCurrency == base)
+        .exchangeRate;
+    return remoteData
+        .map((rate) => Rate(
+              baseCurrency: base,
+              quoteCurrency: rate.quoteCurrency,
+              exchangeRate: rate.exchangeRate / divisor,
+            ))
+        .toList();
   }
 
   @override
   Future<void> saveFavoriteCurrencies(List<Currency> data) async {
-    if (data == null || data.length == 0)
-      return;
+    if (data == null || data.length == 0) return;
     await _storageService.saveFavoriteCurrencies(data);
   }
 }

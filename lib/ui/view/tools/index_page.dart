@@ -27,10 +27,15 @@ class _IndexPageState extends State<IndexPage>
       ),
       body: Container(
         padding: EdgeInsets.all(20),
-        child: Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          alignment: WrapAlignment.center,
+        child: GridView(
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 0,
+            crossAxisCount: 3,
+            crossAxisSpacing: 20,
+            childAspectRatio: 1,
+          ),
           children: [
             ToolWidget(
               iconData: Icons.attach_money_sharp,
@@ -43,9 +48,24 @@ class _IndexPageState extends State<IndexPage>
                   ),
                 );
               },
-              color: WJColors.color_306BFF,
+              color: WJColors.primaryLightValue,
               textColor: WJColors.white,
             ),
+            ToolWidget(
+              iconData: Icons.security_outlined,
+              title: "密码管理",
+              function: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CalculatePage(),
+                  ),
+                );
+              },
+              color: WJColors.primaryLightValue,
+              textColor: WJColors.white,
+            ),
+            
           ],
         ),
       ),

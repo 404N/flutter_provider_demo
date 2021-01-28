@@ -4,11 +4,11 @@ import 'dart:convert';
 
 class CalculateApis {
   final _path = 'https://api.exchangeratesapi.io/latest';
-  final Map<String, String> _headers = {'Accept': 'application/json'};
 
   List<Rate> _rateCache;
 
   Future<List<Rate>> fetchExchangeRates() async {
+
     if(_rateCache==null){
       Response res = await Dio().get(_path);
       if (res.statusCode == 200) {
