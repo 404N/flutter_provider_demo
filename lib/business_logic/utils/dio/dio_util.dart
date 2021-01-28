@@ -24,7 +24,6 @@ class DioUtil {
       InterceptorsWrapper(onRequest: (options) async {
         options.contentType = Headers.formUrlEncodedContentType;
         options.responseType = ResponseType.json;
-        options.baseUrl = Address.host;
         return options;
       }, onResponse: (option) async {
         if (option.statusCode == HttpStatus.ok) {
@@ -42,30 +41,33 @@ class DioUtil {
   }
 
   /// 请求
-  static Future<Response<BaseEntity>> request(
-    String url,
-    RequestMethod method, {
+  static Future<Response<BaseEntity>> request(String url, RequestMethod method,
+      {
 
-    /// 参数
-    Map<String, dynamic> data,
+      /// 参数
+      Map<String, dynamic> data,
 
-    /// 是否展示Loading
-    bool showLoading = false,
+      /// 是否展示Loading
+      bool showLoading = false,
 
-    /// 错误时弹出提示
-    bool errorTips = false,
+      /// 错误时弹出提示
+      bool errorTips = false,
 
-    /// 正确或错误时都弹出提示
-    bool tips = false,
+      /// 正确或错误时都弹出提示
+      bool tips = false,
 
-    /// 正确时弹出提示
-    bool successTips = false,
-  }) {
+      /// 正确时弹出提示
+      bool successTips = false,
+      bool useHost=true,
+      }) {
     // 展示Loading
     if (showLoading) {
       EasyLoading.show(status: "");
     }
     Future<Response<BaseEntity>> response;
+    if(useHost){
+      url=Address.host+url;
+    }
     switch (method) {
       case RequestMethod.GET:
         response = DioUtil.instance.get(url, queryParameters: data);
@@ -85,7 +87,7 @@ class DioUtil {
       if (showLoading) {
         EasyLoading.dismiss();
       }
-      if (value.data.code==0) {
+      if (value.data.code == 0) {
         // 请求成功
         if (successTips || tips) {
           EasyLoading.showInfo(value.data.message);

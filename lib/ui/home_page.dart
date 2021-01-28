@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<BottomNavigationBarItem> bottomTabs = [
-    BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: '小工具'),
+    BottomNavigationBarItem(icon: Icon(CupertinoIcons.briefcase), label: '小工具'),
     BottomNavigationBarItem(icon: Icon(CupertinoIcons.pencil), label: '笔记本'),
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.book_solid), label: '图书馆'),

@@ -44,11 +44,16 @@ class _NotePageState extends State<NotePage>
             }
             return Container(
               color: WJColors.color_F5F6F7,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return NoteWidget(model.noteEntity.content[index]);
+              child: EasyRefresh(
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return NoteWidget(model.noteEntity.content[index]);
+                  },
+                  itemCount: model?.noteEntity?.content?.length,
+                ),
+                onRefresh: () async {
+                  model.initData();
                 },
-                itemCount: model?.noteEntity?.content?.length,
               ),
             );
           },
