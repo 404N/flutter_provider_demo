@@ -41,7 +41,7 @@ class DioUtil {
     );
   }
 
-  /// get请求
+  /// 请求
   static Future<Response<BaseEntity>> request(
     String url,
     RequestMethod method, {
