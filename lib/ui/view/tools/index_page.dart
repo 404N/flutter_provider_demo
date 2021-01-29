@@ -31,7 +31,7 @@ class _IndexPageState extends State<IndexPage>
           shrinkWrap: true,
           padding: EdgeInsets.zero,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: 0,
+            mainAxisSpacing: 20,
             crossAxisCount: 3,
             crossAxisSpacing: 20,
             childAspectRatio: 1,
