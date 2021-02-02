@@ -141,4 +141,16 @@ class WjStyle {
     color: WJColors.color_6F6F6F,
     fontSize: size8,
   );
+
+  static const colorsTransformTextStyle=TextStyle(
+    color: WJColors.white,
+    fontSize: size16,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const colorsTransformTopTextStyle=TextStyle(
+    color: WJColors.primaryDarkValue,
+    fontSize: size16,
+    fontWeight: FontWeight.bold,
+  );
 }

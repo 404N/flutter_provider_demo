@@ -13,7 +13,12 @@ class ColorsTransform extends StatefulWidget {
 
 class _ColorsTransformState extends State<ColorsTransform> {
   ColorsTransformViewModel model = serviceLocator<ColorsTransformViewModel>();
-  TextEditingController _controller;
+  TextEditingController _topRedController;
+  TextEditingController _topGreenController;
+  TextEditingController _topBlueController;
+  TextEditingController _footRedController;
+  TextEditingController _footGreenController;
+  TextEditingController _footBlueController;
 
   @override
   Widget build(BuildContext context) {
@@ -35,34 +40,111 @@ class _ColorsTransformState extends State<ColorsTransform> {
             child: Column(
               children: <Widget>[
                 SizedBox(
+                  height: 60,
+                ),
+                Center(
+                  child: Text(
+                    "十进制代码",
+                    style: WjStyle.colorsTransformTopTextStyle,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
+                        ),
+                        child: Center(
+                          child: TextField(
+                            maxLines: 1,
+                            controller: _topRedController,
+                            showCursor: true,
+                            cursorColor: WJColors.color_306BFF,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(3)
+                            ],
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(0),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
+                        ),
+                        child: Center(
+                          child: TextField(
+                            maxLines: 1,
+                            controller: _topGreenController,
+                            showCursor: true,
+                            cursorColor: WJColors.color_306BFF,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(3)
+                            ],
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(0),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
+                        ),
+                        child: TextField(
+                          maxLines: 1,
+                          controller: _topBlueController,
+                          showCursor: true,
+                          textAlign: TextAlign.center,
+                          cursorColor: WJColors.color_306BFF,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(3)
+                          ],
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(0),
+                            border: InputBorder.none,
+                          ),
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
                   height: 100,
                 ),
                 Container(
                   height: 50,
+                  width: 100,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                    color: WJColors.color_B3B3B3,
-                  ),
+                      color: WJColors.color_306BFF,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Center(
-                    child: TextField(
-                      maxLines: 1,
-                      controller: _controller,
-                      showCursor: true,
-                      cursorColor: WJColors.color_306BFF,
-                      inputFormatters: [LengthLimitingTextInputFormatter(6)],
-                      decoration: InputDecoration(
-                        hintText: "请输入颜色代码",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00FF0000),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                          ),
-                        ),
-                      ),
+                    child: Text(
+                      "转换",
+                      style: WjStyle.colorsTransformTextStyle,
                     ),
                   ),
                 ),
@@ -71,63 +153,92 @@ class _ColorsTransformState extends State<ColorsTransform> {
                 ),
                 Container(
                   height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                    color: WJColors.color_B3B3B3,
-                  ),
-                  child: Center(
-                    child: TextField(
-                      maxLines: 1,
-                      controller: _controller,
-                      showCursor: true,
-                      cursorColor: WJColors.color_306BFF,
-                      inputFormatters: [LengthLimitingTextInputFormatter(6)],
-                      decoration: InputDecoration(
-                        hintText: "请输入颜色代码",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00FF0000),
-                          ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
+                        child: Center(
+                          child: TextField(
+                            maxLines: 1,
+                            controller: _footRedController,
+                            showCursor: true,
+                            cursorColor: WJColors.color_306BFF,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(3)
+                            ],
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(0),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ),
-                    ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
+                        ),
+                        child: Center(
+                          child: TextField(
+                            maxLines: 1,
+                            controller: _footGreenController,
+                            showCursor: true,
+                            cursorColor: WJColors.color_306BFF,
+                            textAlign: TextAlign.center,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(3)
+                            ],
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(0),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: WJColors.color_FFC552,
+                        ),
+                        child: TextField(
+                          maxLines: 1,
+                          controller: _footBlueController,
+                          showCursor: true,
+                          textAlign: TextAlign.center,
+                          cursorColor: WJColors.color_306BFF,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(3)
+                          ],
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(0),
+                            border: InputBorder.none,
+                          ),
+                          keyboardType: TextInputType.number,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                    color: WJColors.color_B3B3B3,
-                  ),
-                  child: Center(
-                    child: TextField(
-                      maxLines: 1,
-                      controller: _controller,
-                      showCursor: true,
-                      cursorColor: WJColors.color_306BFF,
-                      inputFormatters: [LengthLimitingTextInputFormatter(6)],
-                      decoration: InputDecoration(
-                        hintText: "请输入颜色代码",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00FF0000),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                          ),
-                        ),
-                      ),
-                    ),
+                Center(
+                  child: Text(
+                    "十六进制代码",
+                    style: WjStyle.colorsTransformTopTextStyle,
                   ),
                 ),
                 Spacer(),
