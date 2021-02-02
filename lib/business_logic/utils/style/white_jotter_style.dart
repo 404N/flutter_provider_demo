@@ -89,6 +89,17 @@ class WJColors{
   static const Color color_A2A2A2 = Color(0xFFA2A2A2);
   static const Color color_333333 = Color(0xFF333333);
   static const Color color_242625 = Color(0xFF242625);
+
+
+  static const Color color_002E67 = Color(0xFF002E67);
+  static const Color color_F8B400 = Color(0xFFF8B400);
+  static const Color color_008DFF = Color(0xFF008DFF);
+  static const Color color_FFC552 = Color(0xFFFFC552);
+  static const Color color_FF4E00 = Color(0xFFFF4E00);
+  static const Color color_0060D3 = Color(0xFF0060D3);
+  static const Color color_00B8FF = Color(0xFF00B8FF);
+  static const Color color_002E4D = Color(0xFF002E4D);
+  static const Color color_FFAD00 = Color(0xFFFFAD00);
 }
 
 class WjStyle {

@@ -2,6 +2,7 @@ import 'package:flutter_provider_demo/business_logic/view_models/home_index_view
 import 'package:flutter_provider_demo/business_logic/view_models/note_viewmodel.dart';
 import 'package:flutter_provider_demo/business_logic/view_models/tool/calculate_viewmodel.dart';
 import 'package:flutter_provider_demo/business_logic/view_models/tool/choose_viewmodel.dart';
+import 'package:flutter_provider_demo/business_logic/view_models/tool/colors_transform_viewmodel.dart';
 import 'package:flutter_provider_demo/services/storage/tool/calculate_service.dart';
 import 'package:flutter_provider_demo/services/storage/tool/calculate_service_impl.dart';
 import 'package:flutter_provider_demo/services/storage/tool/currency_service.dart';
@@ -24,4 +25,5 @@ void setupServiceLocator() {
   serviceLocator.registerFactory<NoteViewModel>(() => NoteViewModel());
   serviceLocator.registerFactory<CalculateScreenViewModel>(() => CalculateScreenViewModel());
   serviceLocator.registerFactory<ChooseFavoritesViewModel>(() => ChooseFavoritesViewModel());
+  serviceLocator.registerFactory<ColorsTransformViewModel>(() => ColorsTransformViewModel());
 }

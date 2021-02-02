@@ -38,12 +38,13 @@ class _CalculatePageState extends State<CalculatePage> {
             elevation: 0,
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.favorite),
+                icon: Icon(Icons.favorite,color: Colors.red,),
                 onPressed: () async {
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ChooseFavoritePage()),
+                      builder: (context) => ChooseFavoritePage(),
+                    ),
                   );
                   model.refreshFavorites();
                 },

@@ -6,6 +6,8 @@ import 'package:flutter_provider_demo/business_logic/utils/style/white_jotter_st
 import 'package:flutter_provider_demo/ui/view/tools/calculate/calculate_page.dart';
 import 'package:flutter_provider_demo/ui/widget/tool_widget.dart';
 
+import 'colors_transform/colors_transform.dart';
+
 class IndexPage extends StatefulWidget {
   @override
   _IndexPageState createState() => _IndexPageState();
@@ -29,7 +31,7 @@ class _IndexPageState extends State<IndexPage>
         padding: EdgeInsets.all(20),
         child: GridView(
           shrinkWrap: true,
-          padding: EdgeInsets.zero,
+          // padding: EdgeInsets.zero,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 20,
             crossAxisCount: 3,
@@ -48,8 +50,9 @@ class _IndexPageState extends State<IndexPage>
                   ),
                 );
               },
-              color: WJColors.primaryLightValue,
+              color: WJColors.color_002E67,
               textColor: WJColors.white,
+              iconColor: Colors.amber,
             ),
             ToolWidget(
               iconData: Icons.security_outlined,
@@ -62,10 +65,25 @@ class _IndexPageState extends State<IndexPage>
                   ),
                 );
               },
-              color: WJColors.primaryLightValue,
+              color: WJColors.color_F8B400,
               textColor: WJColors.white,
+              iconColor: Colors.black,
             ),
-            
+            ToolWidget(
+              iconData: Icons.color_lens_outlined,
+              title: "RGB转换",
+              function: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ColorsTransform(),
+                  ),
+                );
+              },
+              color: WJColors.color_008DFF,
+              textColor: WJColors.white,
+              iconColor: Colors.amberAccent,
+            ),
           ],
         ),
       ),

@@ -8,6 +8,7 @@ class ToolWidget extends StatelessWidget {
   final String title;
   final Color color;
   final Color textColor;
+  final Color iconColor;
 
   const ToolWidget({
     Key key,
@@ -16,6 +17,7 @@ class ToolWidget extends StatelessWidget {
     this.title,
     this.color,
     this.textColor,
+    this.iconColor,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class ToolWidget extends StatelessWidget {
           Icon(
             iconData,
             size: 60,
-            color: Colors.amber,
+            color: iconColor,
           ),
           Spacer(),
           Center(
@@ -52,7 +54,7 @@ class ToolWidget extends StatelessWidget {
         ],
       ),
     ).gestureDetectorExtension(
-      () => function(),
+          () => function(),
     );
   }
 }
