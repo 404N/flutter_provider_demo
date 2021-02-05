@@ -21,6 +21,18 @@ class _ColorsTransformState extends State<ColorsTransform> {
   TextEditingController _footBlueController;
 
   @override
+  void initState() {
+    _topRedController=TextEditingController();
+    _topGreenController=TextEditingController();
+    _topBlueController=TextEditingController();
+    _footRedController=TextEditingController();
+    _footGreenController=TextEditingController();
+    _footBlueController=TextEditingController();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ColorsTransformViewModel>(
       create: (context) => model,
@@ -135,16 +147,26 @@ class _ColorsTransformState extends State<ColorsTransform> {
                 SizedBox(
                   height: 100,
                 ),
-                Container(
-                  height: 50,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: WJColors.color_306BFF,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                    child: Text(
-                      "转换",
-                      style: WjStyle.colorsTransformTextStyle,
+                GestureDetector(
+                  onTap: (){
+                    if(_topRedController.value.text.length>0){
+                      _footRedController.text=model.getNumber(_topRedController.value.text, 0);
+                    }
+                    if(_topRedController.value.text.length==0&&_footRedController.value.text.length>0){
+                      _topRedController.text=model.getNumber(_footRedController.value.text, 1);
+                    }
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: WJColors.color_306BFF,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Center(
+                      child: Text(
+                        "转换",
+                        style: WjStyle.colorsTransformTextStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -177,7 +199,6 @@ class _ColorsTransformState extends State<ColorsTransform> {
                               contentPadding: EdgeInsets.all(0),
                               border: InputBorder.none,
                             ),
-                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ),
@@ -202,7 +223,6 @@ class _ColorsTransformState extends State<ColorsTransform> {
                               contentPadding: EdgeInsets.all(0),
                               border: InputBorder.none,
                             ),
-                            keyboardType: TextInputType.number,
                           ),
                         ),
                       ),
@@ -226,7 +246,6 @@ class _ColorsTransformState extends State<ColorsTransform> {
                             contentPadding: EdgeInsets.all(0),
                             border: InputBorder.none,
                           ),
-                          keyboardType: TextInputType.number,
                         ),
                       ),
                     ],
